@@ -19,6 +19,7 @@ header{
     align-items: center;
     justify-content: center;
     gap: 10px;
+    margin-bottom: 30px;
 }
 
 header .logo{
@@ -36,13 +37,21 @@ header p {
     margin: 0 auto;
 }
 
-#answer-box{
+.answer{
+    border: none;
+    gap: 10px;
+    margin: 10px;
+    width: 100%;
+    text-align: center;
+}
+
+#control-box{
     display: flex;
     flex-direction: column;
-    border: none;
-    
+    align-items: center;
+    justify-content: center;
     gap: 10px;
-    margin: 20px;
+    padding: 20px 7px;
 }
 
 .btn{
@@ -66,4 +75,8 @@ header p {
 
 .incorrect{
     background-color: crimson;
+}
+
+.hidden{
+    display: none;
 }

@@ -1,8 +1,11 @@
-let button = document.getElementById("next")
-let currentPage = 0
+let start = document.getElementById("start")
+let questionAndAnswerBox = document.getElementById("questions-answers")
+let nextQuestion = document.getElementById("next")
 
-button.addEventListener("click", runGame())
+start.addEventListener("click", playQuiz)
 
-runGame(){
-    let html = 
+function playQuiz(){
+    start.classList.add("hidden")
+    questionAndAnswerBox.classList.remove("hidden")
+    nextQuestion.classList.remove("hidden")
 }
