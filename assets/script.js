@@ -72,3 +72,10 @@ function generateQuestions() {
         answerBoxes[i].innerHTML = questions[currentQuestion].answer[i].text
     }
 }
+
+nextQuestion.addEventListener("click", moveToNextQuestion)
+
+function moveToNextQuestion(){
+    currentQuestion++
+    generateQuestions()
+}
