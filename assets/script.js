@@ -4,7 +4,7 @@ let questions = [
         answer : [
             {text : "3", result : false},
             {text : "1", result : false},
-            {text : "3", result : false},
+            {text : "5", result : false},
             {text : "0", result : true}
         ]
     },
@@ -48,7 +48,12 @@ let questions = [
 
 let start = document.getElementById("start")
 let questionAndAnswerBox = document.getElementById("questions-answers")
+let question = document.getElementById("question")
+let answerBoxes = document.getElementsByClassName("answer")
 let nextQuestion = document.getElementById("next")
+let currentQuestion = 0
+let currentScore = 0
+
 
 start.addEventListener("click", playQuiz)
 
@@ -56,4 +61,14 @@ function playQuiz(){
     start.classList.add("hidden")
     questionAndAnswerBox.classList.remove("hidden")
     nextQuestion.classList.remove("hidden")
+
+    generateQuestions()
+}
+
+function generateQuestions() {
+    question.innerHTML = questions[currentQuestion].question
+
+    for (let i = 0; i < answerBoxes.length; i++){
+        answerBoxes[i].innerHTML = questions[currentQuestion].answer[i].text
+    }
 }
