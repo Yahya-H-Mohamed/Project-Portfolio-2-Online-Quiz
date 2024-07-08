@@ -27,7 +27,7 @@ let questions = [
         ]
     },
     {
-        question : "Who assisted Jude Bellinghams 95th minute equaliser to keep England in the Euros?",
+        question : "Who assisted Jude Bellingham's 95th minute equaliser to keep England in the Euros?",
         answer : [
             {text : "Marc Guehi", result : true},
             {text : "Harry Kane", result : false},
@@ -36,7 +36,7 @@ let questions = [
         ]
     },
     {
-        question : "How many open play goals were scored in the group stages?",
+        question : "How many goals were scored in the group stages?",
         answer : [
             {text : "90", result : false},
             {text : "86", result : true},
@@ -47,10 +47,13 @@ let questions = [
 ]
 
 let start = document.getElementById("start")
+let questionBox = document.getElementById("question-box")
 let questionAndAnswerBox = document.getElementById("questions-answers")
 let question = document.getElementById("question")
 let answerBoxes = document.getElementsByClassName("answer")
 let nextQuestion = document.getElementById("next")
+let TryAgainButton = document.getElementById("restart")
+let scoreText = document.getElementById("scoreText")
 let currentQuestion = 0
 let currentScore = 0
 
@@ -84,6 +87,9 @@ function moveToNextQuestion(){
     reset()
     currentQuestion++
     generateQuestions()
+    if (currentQuestion > 3){
+        nextQuestion.addEventListener("click", showScore)
+    }
 }
 
 
@@ -110,4 +116,49 @@ function reset(){
         delete answerBoxes[i].dataset.correct
         answerBoxes[i].style.pointerEvents = "" 
     }
+}
+
+function showScore(){
+    for (let i = 0; i < answerBoxes.length; i++){
+        answerBoxes[i].classList.add("hidden")
+    }
+    question.innerHTML = `You got ${currentScore} out of 5 questions correct!`
+
+    switch(currentScore){
+        case 5:
+            scoreText.textContent = "Perfect! Looks like someones been keeping up with the Euros";
+            break;
+        case 4:
+            scoreText.textContent = "So close! I can tell you know ball";
+            break;
+        case 3:
+            scoreText.textContent = "Not Bad. Atleast you know something";
+            break;
+        case 2:
+            scoreText.textContent = "You probably have better things to do...";
+            break;
+        case 1:
+            scoreText.textContent = "Look on the bright side, it could have been worse";
+            break;
+        default:
+            scoreText.textContent = "It's not coming home for you..."
+    }
+
+    TryAgainButton.classList.remove("hidden")
+    
+}
+
+TryAgainButton.addEventListener("click", resetQuiz)
+
+function resetQuiz(){
+    currentQuestion = 0
+    currentScore = 0
+    scoreText.innerHTML = ""
+    TryAgainButton.classList.add("hidden")
+
+    for (let i = 0; i < answerBoxes.length; i++){
+        answerBoxes[i].classList.remove("hidden")
+    }
+
+    playQuiz()
 }
