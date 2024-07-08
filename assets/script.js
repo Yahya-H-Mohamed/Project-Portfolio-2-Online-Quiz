@@ -60,8 +60,6 @@ start.addEventListener("click", playQuiz)
 function playQuiz(){
     start.classList.add("hidden")
     questionAndAnswerBox.classList.remove("hidden")
-    nextQuestion.classList.remove("hidden")
-
     generateQuestions()
 }
 
@@ -90,6 +88,7 @@ function moveToNextQuestion(){
 
 
 function clickAnswer(button){
+    nextQuestion.classList.remove("hidden")
     for (let i = 0; i < answerBoxes.length; i++){
         answerBoxes[i].style.pointerEvents = "none" 
     }
@@ -97,7 +96,6 @@ function clickAnswer(button){
     if (button.target.dataset.correct){
         button.target.classList.add("correct")
         currentScore++
-        console.log(currentScore)
     } else{
         button.target.classList.add("incorrect")
     }
@@ -105,6 +103,7 @@ function clickAnswer(button){
 }
 
 function reset(){
+    nextQuestion.classList.add("hidden")
     for (let i = 0; i < answerBoxes.length; i++){
         answerBoxes[i].classList.remove("correct")
         answerBoxes[i].classList.remove("incorrect")
