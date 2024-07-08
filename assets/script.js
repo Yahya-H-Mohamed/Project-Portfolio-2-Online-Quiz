@@ -83,10 +83,10 @@ function generateQuestions() {
 nextQuestion.addEventListener("click", moveToNextQuestion)
 
 function moveToNextQuestion(){
+    reset()
     currentQuestion++
     generateQuestions()
 }
-
 
 
 function clickAnswer(button){
@@ -96,9 +96,19 @@ function clickAnswer(button){
     
     if (button.target.dataset.correct){
         button.target.classList.add("correct")
+        currentScore++
+        console.log(currentScore)
     } else{
         button.target.classList.add("incorrect")
     }
+   
+}
 
-    
+function reset(){
+    for (let i = 0; i < answerBoxes.length; i++){
+        answerBoxes[i].classList.remove("correct")
+        answerBoxes[i].classList.remove("incorrect")
+        delete answerBoxes[i].dataset.correct
+        answerBoxes[i].style.pointerEvents = "" 
+    }
 }
