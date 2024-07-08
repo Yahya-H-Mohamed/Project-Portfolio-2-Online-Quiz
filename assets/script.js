@@ -70,6 +70,13 @@ function generateQuestions() {
 
     for (let i = 0; i < answerBoxes.length; i++){
         answerBoxes[i].innerHTML = questions[currentQuestion].answer[i].text
+        if (questions[currentQuestion].answer[i].result){
+            answerBoxes[i].dataset.correct = "correct"
+        }
+    }
+
+    for (let i = 0; i < answerBoxes.length; i++){
+        answerBoxes[i].addEventListener("click", clickAnswer)
     }
 }
 
@@ -78,4 +85,20 @@ nextQuestion.addEventListener("click", moveToNextQuestion)
 function moveToNextQuestion(){
     currentQuestion++
     generateQuestions()
+}
+
+
+
+function clickAnswer(button){
+    for (let i = 0; i < answerBoxes.length; i++){
+        answerBoxes[i].style.pointerEvents = "none" 
+    }
+    
+    if (button.target.dataset.correct){
+        button.target.classList.add("correct")
+    } else{
+        button.target.classList.add("incorrect")
+    }
+
+    
 }
