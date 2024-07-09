@@ -43,6 +43,15 @@ let questions = [
             {text : "74", result : false},
             {text : "69", result : false}
         ]
+    },
+    {
+        question : null,
+        answer : [
+            {text : null, result : null},
+            {text : null, result : null},
+            {text : null, result : null},
+            {text : null, result : null}
+        ]
     }
 ]
 
@@ -81,9 +90,6 @@ function generateQuestions() {
 }
 
 nextQuestion.addEventListener("click", moveToNextQuestion)
-if (currentQuestion >= 3){
-    showScore()
-}
 
 function moveToNextQuestion(){
     reset()
@@ -93,7 +99,6 @@ function moveToNextQuestion(){
         showScore()
     }
 }
-
 
 function clickAnswer(button){
     nextQuestion.classList.remove("hidden")
