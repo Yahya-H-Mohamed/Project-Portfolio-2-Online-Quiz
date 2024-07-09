@@ -57,7 +57,6 @@ let scoreText = document.getElementById("scoreText")
 let currentQuestion = 0
 let currentScore = 0
 
-
 start.addEventListener("click", playQuiz)
 
 function playQuiz(){
@@ -82,13 +81,16 @@ function generateQuestions() {
 }
 
 nextQuestion.addEventListener("click", moveToNextQuestion)
+if (currentQuestion >= 3){
+    showScore()
+}
 
 function moveToNextQuestion(){
     reset()
     currentQuestion++
     generateQuestions()
-    if (currentQuestion > 3){
-        nextQuestion.addEventListener("click", showScore)
+    if (currentQuestion > 4){
+        showScore()
     }
 }
 
@@ -145,7 +147,6 @@ function showScore(){
     }
 
     TryAgainButton.classList.remove("hidden")
-    
 }
 
 TryAgainButton.addEventListener("click", resetQuiz)
@@ -159,6 +160,6 @@ function resetQuiz(){
     for (let i = 0; i < answerBoxes.length; i++){
         answerBoxes[i].classList.remove("hidden")
     }
-
+    
     playQuiz()
 }
