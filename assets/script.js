@@ -56,6 +56,7 @@ let questions = [
     }
 ]
 
+let paragraph = document.getElementById("quiz-paragraph")
 let start = document.getElementById("start")
 let questionBox = document.getElementById("question-box")
 let questionAndAnswerBox = document.getElementById("questions-answers")
@@ -75,6 +76,7 @@ start.addEventListener("click", playQuiz)
  */
 function playQuiz(){
     start.classList.add("hidden")
+    paragraph.classList.add("hidden")
     questionAndAnswerBox.classList.remove("hidden")
     generateQuestions()
 }

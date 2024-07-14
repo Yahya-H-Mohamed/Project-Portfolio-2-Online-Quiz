@@ -19,7 +19,7 @@ header{
     align-items: center;
     justify-content: center;
     gap: 10px;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
 }
 
 header .logo{
@@ -32,9 +32,12 @@ header p {
 }
 
 #box{
-    margin-top: 40px;
     width: 80%;
     margin: 0 auto;
+}
+
+#question-box{
+    margin-bottom: 10px;
 }
 
 #answer-box{
@@ -66,10 +69,6 @@ header p {
     cursor: pointer;
 }
 
-.btn:hover{
-    border: rgb(255, 255, 255) solid 2px;
-}
-
 .btn:active{
     background-color: gray;
 }
@@ -86,7 +85,7 @@ header p {
     display: none;
 }
 
-.scoreText{
-    margin-top: 10px;
+#scoreText{
+    margin-top: 20px;
     font-size: 18px;
 }
