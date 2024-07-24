@@ -17,18 +17,36 @@ The Euros 2024 quiz website is for the football enthusiasts around the world who
 - The question box in the HTML will display whatever the current question is. The question changes whenever the user clicks on the next question button which will increment through the questions array in the JS file and display the next question.
 
 ![Question box Image](assets/images/About.png)
+
+- ## Buttons
       
-- ### Answers
+- ### Answer Buttons
   
 - There are 4 answer boxes that each have a unique answer depending on what the current question is. They are all clickable however, clicking on a button will reveal whether the answer was correct or not, by making the button turn green if correct or red if incorrect, and remove clickability from all remaining answer buttons. If the correct answer is clicked, the users score will increase by 1. The "next question" button will only appear once the user has already selected an answer, that way it avoids the user being able to skip questions.
+
+![Schedule Image](assets/images/Schedule.png)
+
+- ### Start Button
+  
+- The start button is self explanitory, it runs the playQuiz() function which starts the whole process and displays the questions, upon being clicked it also hides itself.
+
+![Schedule Image](assets/images/Schedule.png)
+
+- ### Next Button
+  
+- The next question button increases the currentQuestion variable by 1, which displays the next question in the questions array. This button only appears once the user clicks on a question, this happens to avoid the user from skipping any questions. Upon being clicked this button also has addition functionality, which is to run the reset() function, this function essentially removes the recently added style classes to the buttons to reset the color, deletes their data attribute and reapplies pointer events to all answer buttons.
+
+![Schedule Image](assets/images/Schedule.png)
+
+- ### Restart Button
+  
+- This button only appears when the user has completed the quiz. If the user would like to re-attempt the quiz, they can click on this button which will reset the quiz back to the first question and set the users score back to 0.
 
 ![Schedule Image](assets/images/Schedule.png)
 
 ## Testing & Validation
 
 - This project works on multiple browers, including but not limited to, Google Chrome and Mozilla Firefox.
-
-- All sections this project are all clearly visable and easy to navigate through.
 
 - All buttons work as intended.
 
@@ -39,6 +57,8 @@ The Euros 2024 quiz website is for the football enthusiasts around the world who
 - The CSS validator returned 0 errors
 
 - The JS validator returned 0 errors
+
+- All colours passed on the WebAIM Contrast Checker
 
 - These are the scores lighthouse returned:
 
