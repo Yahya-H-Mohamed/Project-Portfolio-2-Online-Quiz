@@ -25,30 +25,36 @@ The Euros 2024 quiz website is for the football enthusiasts around the world who
 - There are 4 answer boxes that each have a unique answer depending on what the current question is. They are all clickable however, clicking on a button will reveal whether the answer was correct or not, by making the button turn green if correct or red if incorrect, and remove clickability from all remaining answer buttons. If the correct answer is clicked, the users score will increase by 1. The "next question" button will only appear once the user has already selected an answer, that way it avoids the user being able to skip questions.
 
 ![Answer Button Image](assets/images/Answers.png)
+
 ![Correct Answer Button Image](assets/images/Correct.png)
+Correct Answers change the buttons background to green
+
 ![Incorrect Answer Button Image](assets/images/Incorrect.png)
+Incorrect Answers change the buttons background to green
 
 - ### Start Button
   
 - The start button is self explanitory, it runs the playQuiz() function which starts the whole process and displays the questions, upon being clicked it also hides itself.
 
-![Start Button Image](assets/images/Start%20Button.png)
+![Start Button Image](assets/images/Start-Button.png)
 
 - ### Next Button
   
 - The next question button increases the currentQuestion variable by 1, which displays the next question in the questions array. This button only appears once the user clicks on a question, this happens to avoid the user from skipping any questions. Upon being clicked this button also has addition functionality, which is to run the reset() function, this function essentially removes the recently added style classes to the buttons to reset the color, deletes their data attribute and reapplies pointer events to all answer buttons.
 
-![Next Button Image](assets/images/Next%20Button.png)
+![Next Button Image](assets/images/Next-Button.png)
 
 - ### Restart Button
   
 - This button only appears when the user has completed the quiz. If the user would like to re-attempt the quiz, they can click on this button which will reset the quiz back to the first question and set the users score back to 0.
 
-![Restart Button Image](assets/images/Restart%20Button.png)
+![Restart Button Image](assets/images/Restart-Button.png)
 
 ## Testing & Validation
 
 - This project works on multiple browers, including but not limited to, Google Chrome and Mozilla Firefox.
+
+-This project has been sent to friends and family to test user functionality and no bugs were found.
 
 - All buttons work as intended.
 
@@ -64,7 +70,7 @@ The Euros 2024 quiz website is for the football enthusiasts around the world who
 
 - These are the scores lighthouse returned:
 
-![Lighthouse Score](assets/images/Lighthouse(2).png)
+![Lighthouse Score](assets/images/Lighthouse.png)
     
 ## Bugs
     
@@ -77,16 +83,12 @@ There was bug with my code where the showScore() function would never run. I add
   - From the source section drop-down menu, select the Master Branch
   - Once the master branch has been selected, the page provided will be a link to the site
 
-The live link can be found here - https://yahya-h-mohamed.github.io/Project-Portfolio-1-Gaming-Tournament-Website/index.html
+The live link can be found here - https://yahya-h-mohamed.github.io/Project-Portfolio-2-Online-Quiz/
 
 ## Credit:
-
--I took inspiration from the navigation toggle from the   [Love Running Project](https://github.com/Code-Institute-Solutions/love-running-v3/tree/main) 
-
--I used the same action attribute link from the [Love Running Project](https://github.com/Code-Institute-Solutions/love-running-v3/tree/main) 
 
 
 ## Media
 
-All images used in this project are official artwork directly from [Fortnite](https://www.fortnite.com/) 
+All images used in this project are official artwork directly from [UEFA EUROS 2024 Website](https://www.uefa.com/euro2024/) 
 
