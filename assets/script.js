@@ -45,7 +45,9 @@ let questions = [
             {text : "69", result : false}
         ]
     },
-    {
+    {/* This question is a hotfix that allows the showScore function to run.
+        It is not seen by the user and only exists to keep the code working 
+        as intended. Check line 116 to see where the issue occurs.*/
         question : null,
         answer : [
             {text : null, result : null},
