@@ -10,13 +10,13 @@ The Euros 2024 quiz website is for the football enthusiasts around the world who
    
 - In the header section there is a logo of the 2024 Euros tournament, followed by the name of the website and a subtext telling the user about the quiz.
 
-![Header Image](assets/images/Nav.png)
+![Header Image](assets/images/Header.png)
       
 - ### Questions
   
 - The question box in the HTML will display whatever the current question is. The question changes whenever the user clicks on the next question button which will increment through the questions array in the JS file and display the next question.
 
-![Question box Image](assets/images/About.png)
+![Question Box Image](assets/images/Question.png)
 
 - ## Buttons
       
@@ -24,25 +24,27 @@ The Euros 2024 quiz website is for the football enthusiasts around the world who
   
 - There are 4 answer boxes that each have a unique answer depending on what the current question is. They are all clickable however, clicking on a button will reveal whether the answer was correct or not, by making the button turn green if correct or red if incorrect, and remove clickability from all remaining answer buttons. If the correct answer is clicked, the users score will increase by 1. The "next question" button will only appear once the user has already selected an answer, that way it avoids the user being able to skip questions.
 
-![Schedule Image](assets/images/Schedule.png)
+![Answer Button Image](assets/images/Answers.png)
+![Correct Answer Button Image](assets/images/Correct.png)
+![Incorrect Answer Button Image](assets/images/Incorrect.png)
 
 - ### Start Button
   
 - The start button is self explanitory, it runs the playQuiz() function which starts the whole process and displays the questions, upon being clicked it also hides itself.
 
-![Schedule Image](assets/images/Schedule.png)
+![Start Button Image](assets/images/Start%20Button.png)
 
 - ### Next Button
   
 - The next question button increases the currentQuestion variable by 1, which displays the next question in the questions array. This button only appears once the user clicks on a question, this happens to avoid the user from skipping any questions. Upon being clicked this button also has addition functionality, which is to run the reset() function, this function essentially removes the recently added style classes to the buttons to reset the color, deletes their data attribute and reapplies pointer events to all answer buttons.
 
-![Schedule Image](assets/images/Schedule.png)
+![Next Button Image](assets/images/Next%20Button.png)
 
 - ### Restart Button
   
 - This button only appears when the user has completed the quiz. If the user would like to re-attempt the quiz, they can click on this button which will reset the quiz back to the first question and set the users score back to 0.
 
-![Schedule Image](assets/images/Schedule.png)
+![Restart Button Image](assets/images/Restart%20Button.png)
 
 ## Testing & Validation
 
