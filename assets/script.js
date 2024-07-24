@@ -56,31 +56,30 @@ let questions = [
             {text : null, result : null}
         ]
     }
-]
+];
 
-let paragraph = document.getElementById("quiz-paragraph")
-let start = document.getElementById("start")
-let questionBox = document.getElementById("question-box")
-let questionAndAnswerBox = document.getElementById("questions-answers")
-let question = document.getElementById("question")
-let answerBoxes = document.getElementsByClassName("answer")
-let nextQuestion = document.getElementById("next")
-let TryAgainButton = document.getElementById("restart")
-let scoreText = document.getElementById("scoreText")
-let currentQuestion = 0
-let currentScore = 0
+let paragraph = document.getElementById("quiz-paragraph");
+let start = document.getElementById("start");
+let questionAndAnswerBox = document.getElementById("questions-answers");
+let question = document.getElementById("question");
+let answerBoxes = document.getElementsByClassName("answer");
+let nextQuestion = document.getElementById("next");
+let TryAgainButton = document.getElementById("restart");
+let scoreText = document.getElementById("scoreText");
+let currentQuestion = 0;
+let currentScore = 0;
 
 //Starts the quiz when the start button is clicked
-start.addEventListener("click", playQuiz)
+start.addEventListener("click", playQuiz);
 
 /**This function hides the start button and unhides the question
  *  and answer section and runs the generate questions function
  */
 function playQuiz(){
-    start.classList.add("hidden")
-    paragraph.classList.add("hidden")
-    questionAndAnswerBox.classList.remove("hidden")
-    generateQuestions()
+    start.classList.add("hidden");
+    paragraph.classList.add("hidden");
+    questionAndAnswerBox.classList.remove("hidden");
+    generateQuestions();
 }
 
 /**This function displays the current question in the questions array as well
@@ -88,33 +87,33 @@ function playQuiz(){
  * will determine which answer to add the .correct css styling to.
  */
 function generateQuestions() {
-    question.innerHTML = questions[currentQuestion].question
+    question.innerHTML = questions[currentQuestion].question;
 
     for (let i = 0; i < answerBoxes.length; i++){
-        answerBoxes[i].innerHTML = questions[currentQuestion].answer[i].text
+        answerBoxes[i].innerHTML = questions[currentQuestion].answer[i].text;
         if (questions[currentQuestion].answer[i].result){
-            answerBoxes[i].dataset.correct = "correct"
+            answerBoxes[i].dataset.correct = "correct";
         }
     }
 
     for (let i = 0; i < answerBoxes.length; i++){
-        answerBoxes[i].addEventListener("click", clickAnswer)
+        answerBoxes[i].addEventListener("click", clickAnswer);
     }
 }
 
 //The movetoNextQuestion function will run when the next question button is clicked
-nextQuestion.addEventListener("click", moveToNextQuestion)
+nextQuestion.addEventListener("click", moveToNextQuestion);
 
 /**This function runs the reset function, increments the currentQuestion variable
  * by 1, runs the generateQuestions function and runs the showScore variable if the
  * the currentQuestion variable is larger than 4
  */
 function moveToNextQuestion(){
-    reset()
-    currentQuestion++
-    generateQuestions()
+    reset();
+    currentQuestion++;
+    generateQuestions();
     if (currentQuestion > 4){
-        showScore()
+        showScore();
     }
 }
 
@@ -123,16 +122,16 @@ function moveToNextQuestion(){
  * correct, the currentScore variable is incremented by 1 and applies the .correct styling
  */
 function clickAnswer(button){
-    nextQuestion.classList.remove("hidden")
+    nextQuestion.classList.remove("hidden");
     for (let i = 0; i < answerBoxes.length; i++){
-        answerBoxes[i].style.pointerEvents = "none" 
+        answerBoxes[i].style.pointerEvents = "none";
     }
     
     if (button.target.dataset.correct){
-        button.target.classList.add("correct")
+        button.target.classList.add("correct");
         currentScore++
     } else{
-        button.target.classList.add("incorrect")
+        button.target.classList.add("incorrect");
     }
    
 }
@@ -143,12 +142,12 @@ function clickAnswer(button){
  * again.
  */
 function reset(){
-    nextQuestion.classList.add("hidden")
+    nextQuestion.classList.add("hidden");
     for (let i = 0; i < answerBoxes.length; i++){
-        answerBoxes[i].classList.remove("correct")
-        answerBoxes[i].classList.remove("incorrect")
-        delete answerBoxes[i].dataset.correct
-        answerBoxes[i].style.pointerEvents = "" 
+        answerBoxes[i].classList.remove("correct");
+        answerBoxes[i].classList.remove("incorrect");
+        delete answerBoxes[i].dataset.correct;
+        answerBoxes[i].style.pointerEvents = "";
     }
 }
 
@@ -158,9 +157,9 @@ function reset(){
  */
 function showScore(){
     for (let i = 0; i < answerBoxes.length; i++){
-        answerBoxes[i].classList.add("hidden")
+        answerBoxes[i].classList.add("hidden");
     }
-    question.innerHTML = `You got ${currentScore} out of 5 questions correct!`
+    question.innerHTML = `You got ${currentScore} out of 5 questions correct!`;
 
     switch(currentScore){
         case 5:
@@ -179,14 +178,14 @@ function showScore(){
             scoreText.textContent = "Look on the bright side, it could have been worse";
             break;
         default:
-            scoreText.textContent = "It's not coming home for you..."
+            scoreText.textContent = "It's not coming home for you...";
     }
 
-    TryAgainButton.classList.remove("hidden")
+    TryAgainButton.classList.remove("hidden");
 }
 
 //The resetQuiz function is run when the TryAgainButton is clicked
-TryAgainButton.addEventListener("click", resetQuiz)
+TryAgainButton.addEventListener("click", resetQuiz);
 
 /**This function resets the currentQuestion and currentScore variable
  * to 0. Removes the custom score message in the scoreText variable,
@@ -194,14 +193,14 @@ TryAgainButton.addEventListener("click", resetQuiz)
  * playQuiz variable
 */
 function resetQuiz(){
-    currentQuestion = 0
-    currentScore = 0
-    scoreText.innerHTML = ""
-    TryAgainButton.classList.add("hidden")
+    currentQuestion = 0;
+    currentScore = 0;
+    scoreText.innerHTML = "";
+    TryAgainButton.classList.add("hidden");
 
     for (let i = 0; i < answerBoxes.length; i++){
-        answerBoxes[i].classList.remove("hidden")
+        answerBoxes[i].classList.remove("hidden");
     }
     
-    playQuiz()
+    playQuiz();
 }
