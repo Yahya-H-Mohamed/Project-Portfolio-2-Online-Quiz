@@ -86,6 +86,7 @@ header p {
 
 .btn:active{
     background-color: #FFF700;
+    color: #000000;
 }
 
 .correct{
