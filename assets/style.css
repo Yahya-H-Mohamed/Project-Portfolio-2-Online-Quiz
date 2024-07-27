@@ -85,15 +85,16 @@ header p {
 }
 
 .btn:active{
-    background-color: gray;
+    background-color: #FFF700;
 }
 
 .correct{
-    background-color: lime;
+    background-color: #00ff00;
 }
 
 .incorrect{
-    background-color: crimson;
+    background-color: #B10629;
+    color: #ffffff;
 }
 
 .hidden{
